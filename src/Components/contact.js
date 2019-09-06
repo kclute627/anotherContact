@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NetlifyForm from 'react-netlify-form'
+// import NetlifyForm from 'react-netlify-form'
 
 
 const encode = (data) => {
