@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
+
 class Contact extends Component {
 
     state={
@@ -24,6 +31,18 @@ class Contact extends Component {
         })
     }
 
+    handleSubmit = e => {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": "contact", ...this.state })
+        })
+          .then(() => alert("Success!"))
+          .catch(error => alert(error));
+  
+        e.preventDefault();
+      };
+
 
     render(){
         const {name, email, message}= this.state;
@@ -31,7 +50,7 @@ class Contact extends Component {
 
         return(
             <div className="contact-container">
-                <form name='contact' className="contact-form" method='post'>
+                <form name='contact' className="contact-form" method='post' onSubmit={this.handleSubmit}>
                 <input type="hidden" name="form-name" value="contact"/>
                     <label htmlFor="" className="contact-form__label">
                         Please provide your Name:  <input 
