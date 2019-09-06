@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NetlifyForm from 'react-netlify-form'
 
 
 const encode = (data) => {
@@ -21,15 +22,7 @@ class Contact extends Component {
             [e.target.name]: e.target.value,
         })
     }
-    submitHandler = (e)=> {
-        
-        e.preventDefault()
-        this.setState({
-            name: '',
-            email: '',
-            message: '',
-        })
-    }
+   
 
     submitHandler = e => {
         fetch("/", {
