@@ -31,7 +31,7 @@ class Contact extends Component {
 
         return(
             <div className="contact-container">
-                <form action="" className="contact-form">
+                <form name='contact' className="contact-form">
                     <label htmlFor="" className="contact-form__label">
                         Please provide your Name 
                     </label>
