@@ -21,13 +21,21 @@ class Contact extends Component {
             [e.target.name]: e.target.value,
         })
     }
-    
+    submitHandler = (e)=> {
+        
+        e.preventDefault()
+        this.setState({
+            name: '',
+            email: '',
+            message: '',
+        })
+    }
 
     submitHandler = e => {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "contact": "contact", ...this.state })
+          body: encode({ "form-name": "contact", ...this.state })
         })
           .then(() => this.setState({
             name: '',
@@ -47,7 +55,7 @@ class Contact extends Component {
         return(
             <div className="contact-container">
                 <form name='contact' className="contact-form" method='post' >
-                <input type="hidden" name="contact" value="contact"/>
+                <input type="hidden" name="form-name" value="contact"/>
                 <p className="">
                      <label htmlFor="" className="contact-form__label">
                         Please provide your Name:  <input 
