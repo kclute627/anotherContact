@@ -52,7 +52,8 @@ class Contact extends Component {
             <div className="contact-container">
                 <form name='contact' className="contact-form" method='post' onSubmit={this.handleSubmit}>
                 <input type="hidden" name="form-name" value="contact"/>
-                    <label htmlFor="" className="contact-form__label">
+                <p className="">
+                     <label htmlFor="" className="contact-form__label">
                         Please provide your Name:  <input 
                     name="name" 
                     type="text" 
@@ -61,7 +62,8 @@ class Contact extends Component {
                     value={name}
                     onChange= {this.changeHandler}/>
                     </label>
-                   
+                </p>
+                <p className="">
                     <label htmlFor="" className="contact-form__label">Email Address: <input  
                     name="email" 
                     type="email"  
@@ -69,15 +71,24 @@ class Contact extends Component {
                     className="contact-form__email input"
                     value={email}
                     onChange= {this.changeHandler}/></label>
-                    
+                </p>
+                   <p className="">
+                        
                     <label htmlFor="" className="contact-form__label">Leave Us a Note: <textarea 
                     name="message" 
                     className="contact-form__message"
                     value={message}
                     onChange= {this.changeHandler}
                     /> </label>
+                   </p>
+                   <p className="">
+                       <button type="submit" value="Submit" className="contact-form__submit" onClick={this.submitHandler}>Send</button>\
+                   </p>
+                   
                     
-                    <input type="submit" value="Submit" className="contact-form__submit" onClick={this.submitHandler}/>
+                   
+                    
+                    
                     
                 </form>
 
